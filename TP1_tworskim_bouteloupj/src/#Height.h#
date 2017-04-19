@@ -1,0 +1,16 @@
+#ifndef HEIGHT
+#define HEIGHT
+
+class Height
+{
+  Height();
+  int nx;
+  int ny;
+  double Lx;
+  double Ly;
+  double **hgt;
+  Dvector(int nx, int ny, double db = 0);
+  Dvector(const Height & height);
+  Dvector(std::string str);
+}
+#endif
