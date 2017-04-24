@@ -8,9 +8,9 @@ class Height
   int ny;
   double Lx;
   double Ly;
-  double **comp;
-  Dvector(int nx, int ny, double db = 0);
-  Dvector(const Height & hgt);
-  Dvector(std::string str);
-}
+  double **hgt;
+  Height(int m, int n, double db = 0);
+  Height(const Height & hgt);
+  ~Height();
+};
 #endif

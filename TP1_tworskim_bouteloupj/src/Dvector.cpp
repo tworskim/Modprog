@@ -76,7 +76,7 @@ Dvector::Dvector(std::string str)
   std::string::size_type sz;
   for(int i = 0; i < dim; i ++){
     getline(fichier, ligne);
-    comp[i] = stod(ligne, &sz);
+    //comp[i] = stod(ligne, &sz);
     printf("%f\n", comp[i]);
   }
   fichier.close();

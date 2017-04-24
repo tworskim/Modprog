@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <iostream>
 #include "Dvector.h"
+#include "Height.h"
 #include <time.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 #include <fstream>
 #include <cstring>
 using namespace std;
@@ -28,16 +29,17 @@ Height::Height()
     Ly = 0;
   }
 
-Height::Height(int nx, int ny, double db)
+Height::Height(int m, int n, double db)
   {
     std::cout << "Constructeur taille et zeros\n";
-    dim=d;
-    hgt = new double[nx];
-    for (int i=0; i<dim; i ++)
-      hgt[i] = new double[ny]
-    for (int i=0; i<dim; i ++)
-      for (int j=0; i<dim; i ++)
-	hgt[i] = db;
+    nx = m;
+    ny = n;
+    hgt = new double*[nx];
+    for (int i=0; i<nx; i ++)
+      hgt[i] = new double[ny];
+    for (int i=0; i < nx; i ++)
+      for (int j=0; j < ny; j ++)
+	hgt[i][j] = db;
   }
 
 Height::Height(const Height & height)
@@ -49,10 +51,11 @@ Height::Height(const Height & height)
   Ly = height.Ly;
   if (nx == 0 || ny == 0)
     return;
-  hgt = new double[nx];
-  for (int i=0; i<dim; i ++)
-    hgt[i] = new double[ny]
-  for (int i=0; i<dim; i ++)
-    for (int j=0; i<dim; i ++)
+  hgt = new double*[nx];
+  for (int i = 0; i < nx; i ++)
+    hgt[i] = new double[ny];
+  for (int i = 0; i < nx; i ++)
+    for (int j = 0; j<ny; j ++)
       hgt[i][j] = height.hgt[i][j];
 }
+int main(){}
