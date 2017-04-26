@@ -35,6 +35,6 @@ GerstnerWave::GerstnerWave(const GerstnerWave & gw){
   frequence = gw.frequence;
 }
 
-double GerstnerWave::operator() (Dvector d, doule time){
+double GerstnerWave::operator() (Dvector d, double time){
   return (amplitude * cos((direction(0) * d(0) + direction(1) * d(1)) - frequence * time + phase));
 }

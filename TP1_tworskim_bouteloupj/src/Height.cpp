@@ -58,4 +58,4 @@ Height::Height(const Height & height)
     for (int j = 0; j<ny; j ++)
       hgt[i][j] = height.hgt[i][j];
 }
-int main(){}
+//int main(){}

@@ -33,4 +33,4 @@ WaveModel::WaveModel(const WaveModel & wm){
 
 WaveModel::~WaveModel(){}
 
-int main(){}
+//int main(){}

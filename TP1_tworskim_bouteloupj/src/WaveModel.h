@@ -3,11 +3,14 @@
 
 class WaveModel
 {
+ private : 
   double direction;
   double alignement;
   double intensite;
   double longueuronde;
   double ajust;
+
+ public :
   WaveModel();
   ~WaveModel();
   WaveModel(double d, double a, double i, double l, double aj);
