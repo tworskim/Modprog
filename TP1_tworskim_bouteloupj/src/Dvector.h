@@ -37,4 +37,5 @@ Dvector operator- (const Dvector dvect);
 
 Dvector operator+ (const Dvector dvect, const Dvector dvect2);
 Dvector operator- (const Dvector dvect, const Dvector dvect2);
+double operator* (const Dvector dvect, const Dvector dvect2);
 #endif

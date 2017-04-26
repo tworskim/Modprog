@@ -64,7 +64,7 @@ Dvector::Dvector(std::string str)
   ifstream fichier("text.txt");
   std::string ligne;
   int dimt = 0;
-  //double d = 0; 
+  //double d = 0;
   while(getline(fichier, ligne)){
     dimt += 1;
   }
@@ -199,6 +199,14 @@ Dvector operator* (const Dvector dvect, const double d)
   Dvector R(dvect);
   R *= d;
   return (R);
+}
+
+
+double operator* (const Dvector dvect, const Dvector dvect2)
+{
+  for (int i = 0; i < dim; i++)
+    ret += dvect.comp[i] * dvect2.comp[i];
+  return ret;
 }
 
 Dvector& Dvector::operator/= (double d)
