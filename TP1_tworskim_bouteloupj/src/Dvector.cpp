@@ -104,6 +104,11 @@ double& Dvector::operator() (int i)
   return (compi);
 }
 
+double Dvector::operator () (int i) const {
+	if (i>dim){std::cerr<<"ereur accesseur const";}
+	return comp[i];
+}
+
 Dvector& Dvector::operator+= (double d)
 {
   for (int i = 0; i < dim; i++)
@@ -131,11 +136,7 @@ Dvector & Dvector::operator+= (const Dvector dvect){
   return *this;
 }
 
-Dvector operator+ (const Dvector dvect, const Dvector dvect2){
-  Dvector R(dvect);
-  R += dvect2;
-  return (R);
-}
+
 
 Dvector& Dvector::operator-= (double d)
 {
@@ -144,20 +145,30 @@ Dvector& Dvector::operator-= (double d)
   return *this;
 }
 
-Dvector operator- (const Dvector dvect)
-{
-  Dvector R(dvect);
-  for (int i = 0; i < dvect.dim; i++)
-    R.comp[i] = - R.comp[i];
-  return R;
+Dvector Dvector::operator -() {
+	Dvector result(*this);
+	for (int i = 0; i < dim; i++) {
+		result(i) = -result(i);
+	}
+	return result;
+}
+Dvector Dvector::operator - (Dvector V){
+	if (V.size()!=dim){cerr<<"erreur addition";}
+	Dvector result(V);
+		for (int i = 0; i < V.size(); i++) {
+			result(i) =  comp[i]-result(i);
+		}
+		return result;
+}
+Dvector Dvector::operator + (Dvector V){
+	if (V.size()!=dim){cerr<<"erreur addition";}
+	Dvector result(V);
+	for (int i = 0; i < V.size(); i++) {
+		result(i) = result(i) + comp[i];
+	}
+	return result;
 }
 
-Dvector operator- (const double d, const Dvector dvect)
-{
-  Dvector R(dvect);
-  R -= d;
-  return (R);
-}
 
 Dvector operator- (const Dvector dvect, const double d)
 {
@@ -202,17 +213,18 @@ Dvector operator* (const Dvector dvect, const double d)
 }
 
 
-double operator* (const Dvector dvect, const Dvector dvect2)
+double Dvector::operator* (const Dvector V)
 {
+	float ret=0;
   for (int i = 0; i < dim; i++)
-    ret += dvect.comp[i] * dvect2.comp[i];
+    ret += comp[i] * V(i);
   return ret;
 }
 
 Dvector& Dvector::operator/= (double d)
 {
   if (d == 0.){
-  std:cerr << "Division par zero";
+  std::cerr << "Division par zero";
   }
   else{
     for (int i = 0; i < dim; i++)
@@ -239,6 +251,7 @@ Dvector & Dvector::operator= (Dvector dvect){
 
 
 // TEST
+/*
 int main()
 {
   // Dvector dv = Dvector(4);
@@ -255,3 +268,4 @@ int main()
   Dvector dv2 = Dvector("text.txt");
   dv2.display(std::cout);
 }
+*/
