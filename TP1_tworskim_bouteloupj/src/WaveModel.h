@@ -3,7 +3,7 @@
 
 class WaveModel
 {
- private : 
+ protected :
   double direction;
   double alignement;
   double intensite;
