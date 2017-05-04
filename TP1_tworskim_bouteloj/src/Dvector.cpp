@@ -17,6 +17,10 @@ void Dvector::display(std::ostream& str)
     str << comp[i] << "\n";
 }
 
+int Dvector::size(){
+	return this->dim;
+}
+
 Dvector::~Dvector()
 {
   std::cout << "Destructeur\n";
@@ -58,39 +62,31 @@ Dvector::Dvector(const Dvector & dv)
     comp[i] = dv.comp[i];
 }
 
-Dvector::Dvector(std::string str)
-{
-  std::cout << "Constructeur lecture fichier\n";
-  ifstream fichier("text.txt");
-  std::string ligne;
-  int dimt = 0;
-  //double d = 0;
-  while(getline(fichier, ligne)){
-    dimt += 1;
-  }
-  dim = dimt;
-  if (dim == 0)
-    return;
-  comp = new double[dim];
-  fichier.open("text.txt", ios::in);
-  std::string::size_type sz;
-  for(int i = 0; i < dim; i ++){
-    getline(fichier, ligne);
-    //comp[i] = stod(ligne, &sz);
-    printf("%f\n", comp[i]);
-  }
-  fichier.close();
+Dvector::Dvector(std::string str) {
+	std::ifstream input(str.c_str());
+	this->dim = 0;
+	if (!input.is_open()) {
+		return;
+	}
+	input.seekg(0);
+	double temp;
+	while (!input.eof()) {
+		input >> temp;
+		this->dim++;
+	}
+	input.seekg(0);
+	comp = new double[this->dim];
+
+	for (int i = 0; i < this->dim; i++) {
+	input>>comp[i];
+}
+
 }
 
 void Dvector::fillRandomly()
 {
   for (int i = 0; i < dim; i++)
     comp[i] = (double) rand()/(double) RAND_MAX;
-}
-
-int Dvector::size()
-{
-  return dim;
 }
 
 
@@ -247,6 +243,34 @@ Dvector & Dvector::operator= (Dvector dvect){
   //comp = new double[dim];
   memcpy(comp, dvect.comp, dim * sizeof(double));
   return (*this);
+}
+
+
+
+std::ostream& operator <<(std::ostream & Out, const Dvector & V) {
+	for (int i = 0; i < V.dim; i++) {
+		Out << V(i) << "\n";
+	}
+	return Out;
+}
+std::istream& operator >> (std::istream & In,const Dvector & V){
+	for (int i = 0; i < V.dim; i++) {
+		In >> V(i);
+	}
+	return In;
+}
+
+bool Dvector::operator == (const Dvector &V){
+	if(V.dim!=dim){
+		return false;
+	}
+	for (int i=0; i<dim;i++){
+		if(V(i)!=comp[i]){
+			return false;
+		}
+	}
+	return true;
+
 }
 
 
