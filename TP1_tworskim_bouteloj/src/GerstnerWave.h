@@ -3,10 +3,12 @@
 
 class GerstnerWave
 {
+ private :
   double amplitude;
   double phase;
   Dvector direction;
   double frequence;
+ public :
   GerstnerWave();
   ~GerstnerWave();
   GerstnerWave(double a, double p, Dvector d, double f);

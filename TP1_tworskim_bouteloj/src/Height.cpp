@@ -29,11 +29,26 @@ Height::Height()
     Ly = 0;
   }
 
-Height::Height(int m, int n, double db)
+double Height::getLx(){
+  return(Lx);
+}
+double Height::getLy(){
+  return(Ly);
+}
+int Height::getnx(){
+  return(nx);
+}
+int Height::getny(){
+  return(ny);
+}
+
+Height::Height(int m, int n, double lx, double ly, double db)
   {
     std::cout << "Constructeur taille et zeros\n";
     nx = m;
     ny = n;
+    Lx= lx;
+    Ly = ly;
     hgt = new double*[nx];
     for (int i=0; i<nx; i ++)
       hgt[i] = new double[ny];
@@ -41,6 +56,16 @@ Height::Height(int m, int n, double db)
       for (int j=0; j < ny; j ++)
 	hgt[i][j] = db;
   }
+
+void Height::display(){
+  for (int i=0; i < nx; i ++){
+    for (int j=0; j < ny; j ++){
+	std::cout << hgt[i][j];
+	std::cout << " ";
+    }
+    std::cout << "\n";
+  }
+}
 
 Height::Height(const Height & height)
 {
@@ -58,4 +83,19 @@ Height::Height(const Height & height)
     for (int j = 0; j<ny; j ++)
       hgt[i][j] = height.hgt[i][j];
 }
-//int main(){}
+
+double & Height::operator()(double x, double y){
+  int x1 = (int) (x/Lx * nx);
+  int y1 = (int) (y/Ly * ny);
+  return hgt[x1][y1];
+}
+
+int main(){
+  Height h = Height(10,10,5,5,12.2);
+  h.display();
+  std::cout << h(2,3);
+  h(2,3) = 4;
+  std::cout << h(2,3);
+  Height hp = Height(h);
+  std::cout << hp(2,3);
+}

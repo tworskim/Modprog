@@ -71,15 +71,18 @@ Dvector::Dvector(std::string str) {
 	input.seekg(0);
 	double temp;
 	while (!input.eof()) {
-		input >> temp;
-		this->dim++;
+	  std::cout << input;
+	  std::cout << "\n";
+	  input >> temp;
+	  this->dim++;
 	}
 	input.seekg(0);
 	comp = new double[this->dim];
 
 	for (int i = 0; i < this->dim; i++) {
-	input>>comp[i];
-}
+	  std::cout << input;
+	  //input>>comp[i];
+	}
 
 }
 
@@ -169,9 +172,7 @@ Dvector Dvector::operator + (Dvector V){
 Dvector operator- (const Dvector dvect, const double d)
 {
   Dvector R(dvect);
-  for (int i = 0; i < dvect.dim; i++)
-    R.comp[i] = - R.comp[i];
-  R+=d;
+  R-=d;
   return R;
 }
 

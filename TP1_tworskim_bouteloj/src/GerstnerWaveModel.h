@@ -2,12 +2,17 @@
 #define GERSTNERWAVEMODEL
 
 #include <list>
+typedef std::list<GerstnerWave> GerstnerWaves;
 
 class GerstnerWaveModel : public WaveModel{
  private :
-  std::list<GerstnerWave>::const_iterator GerstnerWaves;
+  
+  GerstnerWaves gws;
  public :
+  virtual double operator() (Dvector d, double time);
+  void add(GerstnerWave gw);
   GerstnerWaveModel();
+  GerstnerWaveModel(double d, double a, double i, double l, double aj);
   ~GerstnerWaveModel();
 };
 

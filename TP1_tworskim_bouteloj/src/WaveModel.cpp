@@ -16,6 +16,7 @@ WaveModel::WaveModel(){
   longueuronde = 0;
   ajust = 0;
 }
+
 WaveModel::WaveModel(double d, double a, double i, double l, double aj){
   direction = d;
   alignement = a;
@@ -23,6 +24,27 @@ WaveModel::WaveModel(double d, double a, double i, double l, double aj){
   longueuronde = l;
   ajust = aj;
 }
+
+double WaveModel::getdirection(){
+  return(direction);
+}
+
+double WaveModel::getalignement(){
+  return(alignement);
+}
+
+double WaveModel::getintensite(){
+  return(intensite);
+}
+
+double WaveModel::getlongueuronde(){
+  return(longueuronde);
+}
+
+double WaveModel::getajust(){
+  return(ajust);
+}
+
 WaveModel::WaveModel(const WaveModel & wm){
   direction = wm.direction;
   alignement = wm.alignement;
