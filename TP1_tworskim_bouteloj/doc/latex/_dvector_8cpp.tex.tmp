@@ -1,0 +1,107 @@
+\hypertarget{_dvector_8cpp}{}\section{src/\+Dvector.cpp File Reference}
+\label{_dvector_8cpp}\index{src/\+Dvector.\+cpp@{src/\+Dvector.\+cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include \char`\"{}Dvector.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$cstring$>$}\\*
+Include dependency graph for Dvector.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_dvector}{Dvector} \hyperlink{_dvector_8cpp_a101152f56eb54124fc2d01c2ce7c0833}{operator+} (const double d, const \hyperlink{class_dvector}{Dvector} dvect)
+\item 
+\hyperlink{class_dvector}{Dvector} \hyperlink{_dvector_8cpp_a823da1656ee7f80e4f7f49e8d75b39c9}{operator+} (const \hyperlink{class_dvector}{Dvector} dvect, const double d)
+\item 
+\hyperlink{class_dvector}{Dvector} \hyperlink{_dvector_8cpp_a138fc7217f02db2ef00a5a827f899161}{operator-\/} (const \hyperlink{class_dvector}{Dvector} dvect, const double d)
+\item 
+\hyperlink{class_dvector}{Dvector} \hyperlink{_dvector_8cpp_aca6e0afee50cc7b654619711534bbbf8}{operator-\/} (const \hyperlink{class_dvector}{Dvector} dvect, const \hyperlink{class_dvector}{Dvector} dvect2)
+\item 
+\hyperlink{class_dvector}{Dvector} \hyperlink{_dvector_8cpp_a2d9984b1f18e8d248166a4d9070d78c6}{operator$\ast$} (const double d, const \hyperlink{class_dvector}{Dvector} dvect)
+\item 
+\hyperlink{class_dvector}{Dvector} \hyperlink{_dvector_8cpp_a4fe8037577423b02106b77bd17d02836}{operator$\ast$} (const \hyperlink{class_dvector}{Dvector} dvect, const double d)
+\item 
+\hyperlink{class_dvector}{Dvector} \hyperlink{_dvector_8cpp_ae5776d9cc78363edc0ae3e9c6e115e6d}{operator/} (const \hyperlink{class_dvector}{Dvector} dvect, const double d)
+\item 
+std\+::ostream \& \hyperlink{_dvector_8cpp_aa76545ce2cc7404bc773b6c3f755c28b}{operator$<$$<$} (std\+::ostream \&Out, const \hyperlink{class_dvector}{Dvector} \&V)
+\item 
+std\+::istream \& \hyperlink{_dvector_8cpp_ae708b985f351b55ef0b89ef5652d1ded}{operator$>$$>$} (std\+::istream \&In, const \hyperlink{class_dvector}{Dvector} \&V)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{Dvector.\+cpp@{Dvector.\+cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Dvector.\+cpp@{Dvector.\+cpp}}
+\subsubsection[{\texorpdfstring{operator$\ast$(const double d, const Dvector dvect)}{operator*(const double d, const Dvector dvect)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const double}]{d, }
+\item[{const {\bf Dvector}}]{dvect}
+\end{DoxyParamCaption}
+)}\hypertarget{_dvector_8cpp_a2d9984b1f18e8d248166a4d9070d78c6}{}\label{_dvector_8cpp_a2d9984b1f18e8d248166a4d9070d78c6}
+\index{Dvector.\+cpp@{Dvector.\+cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Dvector.\+cpp@{Dvector.\+cpp}}
+\subsubsection[{\texorpdfstring{operator$\ast$(const Dvector dvect, const double d)}{operator*(const Dvector dvect, const double d)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector}}]{dvect, }
+\item[{const double}]{d}
+\end{DoxyParamCaption}
+)}\hypertarget{_dvector_8cpp_a4fe8037577423b02106b77bd17d02836}{}\label{_dvector_8cpp_a4fe8037577423b02106b77bd17d02836}
+\index{Dvector.\+cpp@{Dvector.\+cpp}!operator+@{operator+}}
+\index{operator+@{operator+}!Dvector.\+cpp@{Dvector.\+cpp}}
+\subsubsection[{\texorpdfstring{operator+(const double d, const Dvector dvect)}{operator+(const double d, const Dvector dvect)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} operator+ (
+\begin{DoxyParamCaption}
+\item[{const double}]{d, }
+\item[{const {\bf Dvector}}]{dvect}
+\end{DoxyParamCaption}
+)}\hypertarget{_dvector_8cpp_a101152f56eb54124fc2d01c2ce7c0833}{}\label{_dvector_8cpp_a101152f56eb54124fc2d01c2ce7c0833}
+\index{Dvector.\+cpp@{Dvector.\+cpp}!operator+@{operator+}}
+\index{operator+@{operator+}!Dvector.\+cpp@{Dvector.\+cpp}}
+\subsubsection[{\texorpdfstring{operator+(const Dvector dvect, const double d)}{operator+(const Dvector dvect, const double d)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector}}]{dvect, }
+\item[{const double}]{d}
+\end{DoxyParamCaption}
+)}\hypertarget{_dvector_8cpp_a823da1656ee7f80e4f7f49e8d75b39c9}{}\label{_dvector_8cpp_a823da1656ee7f80e4f7f49e8d75b39c9}
+\index{Dvector.\+cpp@{Dvector.\+cpp}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Dvector.\+cpp@{Dvector.\+cpp}}
+\subsubsection[{\texorpdfstring{operator-\/(const Dvector dvect, const double d)}{operator-(const Dvector dvect, const double d)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector}}]{dvect, }
+\item[{const double}]{d}
+\end{DoxyParamCaption}
+)}\hypertarget{_dvector_8cpp_a138fc7217f02db2ef00a5a827f899161}{}\label{_dvector_8cpp_a138fc7217f02db2ef00a5a827f899161}
+\index{Dvector.\+cpp@{Dvector.\+cpp}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Dvector.\+cpp@{Dvector.\+cpp}}
+\subsubsection[{\texorpdfstring{operator-\/(const Dvector dvect, const Dvector dvect2)}{operator-(const Dvector dvect, const Dvector dvect2)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector}}]{dvect, }
+\item[{const {\bf Dvector}}]{dvect2}
+\end{DoxyParamCaption}
+)}\hypertarget{_dvector_8cpp_aca6e0afee50cc7b654619711534bbbf8}{}\label{_dvector_8cpp_aca6e0afee50cc7b654619711534bbbf8}
+\index{Dvector.\+cpp@{Dvector.\+cpp}!operator/@{operator/}}
+\index{operator/@{operator/}!Dvector.\+cpp@{Dvector.\+cpp}}
+\subsubsection[{\texorpdfstring{operator/(const Dvector dvect, const double d)}{operator/(const Dvector dvect, const double d)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector}}]{dvect, }
+\item[{const double}]{d}
+\end{DoxyParamCaption}
+)}\hypertarget{_dvector_8cpp_ae5776d9cc78363edc0ae3e9c6e115e6d}{}\label{_dvector_8cpp_ae5776d9cc78363edc0ae3e9c6e115e6d}
+\index{Dvector.\+cpp@{Dvector.\+cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Dvector.\+cpp@{Dvector.\+cpp}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(std\+::ostream \&\+Out, const Dvector \&\+V)}{operator<<(std::ostream &Out, const Dvector &V)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{Out, }
+\item[{const {\bf Dvector} \&}]{V}
+\end{DoxyParamCaption}
+)}\hypertarget{_dvector_8cpp_aa76545ce2cc7404bc773b6c3f755c28b}{}\label{_dvector_8cpp_aa76545ce2cc7404bc773b6c3f755c28b}
+\index{Dvector.\+cpp@{Dvector.\+cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Dvector.\+cpp@{Dvector.\+cpp}}
+\subsubsection[{\texorpdfstring{operator$>$$>$(std\+::istream \&\+In, const Dvector \&\+V)}{operator>>(std::istream &In, const Dvector &V)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{In, }
+\item[{const {\bf Dvector} \&}]{V}
+\end{DoxyParamCaption}
+)}\hypertarget{_dvector_8cpp_ae708b985f351b55ef0b89ef5652d1ded}{}\label{_dvector_8cpp_ae708b985f351b55ef0b89ef5652d1ded}

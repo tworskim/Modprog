@@ -30,7 +30,10 @@ Dvector::~Dvector()
 Dvector::Dvector()
   {
     std::cout << "Constructeur par défaut\n";
-    dim=0;
+    dim=2;
+    comp = new double[dim];
+    for (int i=0; i<dim; i ++)
+      comp[i] = 0;
   }
 
 Dvector::Dvector(int d)
@@ -58,8 +61,13 @@ Dvector::Dvector(const Dvector & dv)
   if (dim == 0)
     return;
   comp = new double[dim];
-  for (int i = 0; i < dim; i++)
+  for (int i = 0; i < dim; i++){
     comp[i] = dv.comp[i];
+    std::cout << "\n";
+    std::cout <<dv.comp[i];
+    std::cout << "\n";  
+  }
+  
 }
 
 Dvector::Dvector(std::string str) {
@@ -71,8 +79,6 @@ Dvector::Dvector(std::string str) {
 	input.seekg(0);
 	double temp;
 	while (!input.eof()) {
-	  std::cout << input;
-	  std::cout << "\n";
 	  input >> temp;
 	  this->dim++;
 	}
@@ -80,8 +86,7 @@ Dvector::Dvector(std::string str) {
 	comp = new double[this->dim];
 
 	for (int i = 0; i < this->dim; i++) {
-	  std::cout << input;
-	  //input>>comp[i];
+	  input>>comp[i];
 	}
 
 }
@@ -104,7 +109,7 @@ double& Dvector::operator() (int i)
 }
 
 double Dvector::operator () (int i) const {
-	if (i>dim){std::cerr<<"ereur accesseur const";}
+	if (i>dim){std::cerr<<"erreur accesseur const";}
 	return comp[i];
 }
 

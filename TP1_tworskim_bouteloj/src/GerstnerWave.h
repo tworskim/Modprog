@@ -9,9 +9,13 @@ class GerstnerWave
   Dvector direction;
   double frequence;
  public :
+  double getamplitude();
+  double getphase();
+  Dvector getdirection();
+  double getfrequence();
   GerstnerWave();
   ~GerstnerWave();
-  GerstnerWave(double a, double p, Dvector d, double f);
+  GerstnerWave(double a, double p, Dvector& d, double f);
   GerstnerWave(const GerstnerWave & gw);
   double operator() (Dvector x, double time);
 };

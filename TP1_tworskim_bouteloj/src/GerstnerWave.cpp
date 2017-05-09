@@ -10,31 +10,53 @@
 #include <cstring>
 using namespace std;
 
+double GerstnerWave::getamplitude(){
+  return amplitude;
+}
+double GerstnerWave::getphase(){
+   return phase;
+}
+Dvector GerstnerWave::getdirection(){
+  return direction;
+}
+double GerstnerWave::getfrequence(){
+  return frequence;
+}
+
 GerstnerWave::GerstnerWave()
 {
+  std::cout <<"Constructeur par défaut GW";
   amplitude = 0;
   phase = 0;
-  Dvector direction = Dvector(3,0);
+  Dvector direction = Dvector(2,0);
   frequence = 0;
 }
   
-GerstnerWave::~GerstnerWave(){}
+GerstnerWave::~GerstnerWave(){
+}
 
-GerstnerWave::GerstnerWave(double a, double p, Dvector d, double f)
+GerstnerWave::GerstnerWave(double a, double p, Dvector& d, double f)
 {
   amplitude = a;
   phase = p;
-  Dvector direction = Dvector(d);
+  std::cout << "Const GW avec param";
+  std::cout << d(0);
+  std::cout << d(0);
+  direction = Dvector(d);
+  std::cout << direction(0);
+  std::cout << direction(0);
   frequence = f;
+  std::cout << "Fin Const GW avec param";
 }
 
 GerstnerWave::GerstnerWave(const GerstnerWave & gw){
+  std::cout <<"Constructeur par copie GW";
   amplitude = gw.amplitude;
   phase = gw.phase;
-  Dvector direction = Dvector(gw.direction);
+  direction = Dvector(gw.direction);
   frequence = gw.frequence;
 }
 
-double GerstnerWave::operator() (Dvector d, double time){
-  return (amplitude * cos((direction(0) * d(0) + direction(1) * d(1)) - frequence * time + phase));
+double GerstnerWave::operator() (Dvector x, double time){
+  return (amplitude * cos((direction(0) * x(0) + direction(1) * x(1)) - frequence * time + phase));
 }

@@ -90,12 +90,12 @@ double & Height::operator()(double x, double y){
   return hgt[x1][y1];
 }
 
-int main(){
-  Height h = Height(10,10,5,5,12.2);
-  h.display();
-  std::cout << h(2,3);
-  h(2,3) = 4;
-  std::cout << h(2,3);
-  Height hp = Height(h);
-  std::cout << hp(2,3);
-}
+// int main(){
+//   Height h = Height(10,10,5,5,12.2);
+//   h.display();
+//   std::cout << h(2,3);
+//   h(2,3) = 4;
+//   std::cout << h(2,3);
+//   Height hp = Height(h);
+//   std::cout << hp(2,3);
+// }
