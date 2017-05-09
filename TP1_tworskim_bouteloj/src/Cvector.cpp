@@ -5,10 +5,11 @@
 #include <stdlib.h>
 #include <fstream>
 #include <cstring>
+#include <complex>
 using namespace std;
 
 
-template <class T>
+template <typename T>
 void Cvector<T>::display(std::ostream& str)
 {
   if (dim == 0)
@@ -16,17 +17,17 @@ void Cvector<T>::display(std::ostream& str)
   for (int i = 0; i < dim; i++)
     str << comp[i] << "\n";
 }
-template <class T>
+template <typename T>
 int Cvector<T>::size(){
 	return this->dim;
 }
-template <class T>
+template <typename T>
 Cvector<T>::~Cvector()
 {
   std::cout << "Destructeur\n";
   delete [] comp;
 }
-template <class T>
+template <typename T>
 Cvector<T>::Cvector()
   {
     std::cout << "Constructeur par défaut\n";
@@ -35,7 +36,7 @@ Cvector<T>::Cvector()
     for (int i=0; i<dim; i ++)
       comp[i] = 0;
   }
-template <class T>
+template <typename T>
 Cvector<T>::Cvector(int d)
   {
     std::cout << "Constructeur taille et zeros\n";
@@ -44,7 +45,7 @@ Cvector<T>::Cvector(int d)
     for (int i=0; i<dim; i ++)
       comp[i] = 0;
   }
-template <class T>
+template <typename T>
 Cvector<T>::Cvector(int d, T db)
   {
     std::cout << "Constructeur taille et contenu\n";
@@ -53,7 +54,7 @@ Cvector<T>::Cvector(int d, T db)
     for (int i=0; i<dim; i ++)
       comp[i] = db;
   }
-template <class T>
+template <typename T>
 Cvector<T>::Cvector(const Cvector<T> & dv)
 {
   std::cout << "Constructeur par copie\n";
@@ -65,39 +66,19 @@ Cvector<T>::Cvector(const Cvector<T> & dv)
     comp[i] = dv.comp[i];
     std::cout << "\n";
     std::cout <<dv.comp[i];
-    std::cout << "\n";  
+    std::cout << "\n";
   }
-  
-}
-template <class T>
-Cvector<T>::Cvector(std::string str) {
-	std::ifstream input(str.c_str());
-	this->dim = 0;
-	if (!input.is_open()) {
-		return;
-	}
-	input.seekg(0);
-	T temp;
-	while (!input.eof()) {
-	  input >> temp;
-	  this->dim++;
-	}
-	input.seekg(0);
-	comp = new T[this->dim];
-
-	for (int i = 0; i < this->dim; i++) {
-	  input>>comp[i];
-	}
 
 }
-template <class T>
+
+template <typename T>
 void Cvector<T>::fillRandomly()
 {
   for (int i = 0; i < dim; i++)
     comp[i] = (T) rand()/(T) RAND_MAX;
 }
 
-template <class T>
+template <typename T>
 T& Cvector<T>::operator() (int i)
 {
   if (i < 0 || i>= dim)
@@ -107,33 +88,33 @@ T& Cvector<T>::operator() (int i)
   T& compi = comp[i];
   return (compi);
 }
-template <class T>
+template <typename T>
 T Cvector<T>::operator () (int i) const {
 	if (i>dim){std::cerr<<"erreur accesseur const";}
 	return comp[i];
 }
-
+template <typename T>
 Cvector<T>& Cvector<T>::operator+= (T d)
 {
   for (int i = 0; i < dim; i++)
     comp[i] = d + comp[i];
   return *this;
 }
-template <class T>
+template <typename T>
 Cvector<T> operator+ (const T d, const Cvector<T> dvect)
 {
   Cvector<T> R(dvect);
   R += d;
   return (R);
 }
-template <class T>
+template <typename T>
 Cvector<T> operator+ (const Cvector<T> dvect, const T d)
 {
   Cvector<T> R(dvect);
   R += d;
   return (R);
 }
-template <class T>
+template <typename T>
 Cvector<T> & Cvector<T>::operator+= (const Cvector<T> dvect){
   for (int i = 0; i < dim; i++)
     comp[i] = dvect.comp[i] + comp[i];
@@ -141,14 +122,14 @@ Cvector<T> & Cvector<T>::operator+= (const Cvector<T> dvect){
 }
 
 
-template <class T>
+template <typename T>
 Cvector<T>& Cvector<T>::operator-= (T d)
 {
   for (int i = 0; i < dim; i++)
     comp[i] = comp[i] - d;
   return *this;
 }
-template <class T>
+template <typename T>
 Cvector<T> Cvector<T>::operator -() {
 	Cvector<T> result(*this);
 	for (int i = 0; i < dim; i++) {
@@ -156,7 +137,7 @@ Cvector<T> Cvector<T>::operator -() {
 	}
 	return result;
 }
-template <class T>
+template <typename T>
 Cvector<T> Cvector<T>::operator - (Cvector<T> V){
 	if (V.size()!=dim){cerr<<"erreur addition";}
 	Cvector<T> result(V);
@@ -165,7 +146,7 @@ Cvector<T> Cvector<T>::operator - (Cvector<T> V){
 		}
 		return result;
 }
-template <class T>
+template <typename T>
 Cvector<T> Cvector<T>::operator + (Cvector<T> V){
 	if (V.size()!=dim){cerr<<"erreur addition";}
 	Cvector<T> result(V);
@@ -175,7 +156,7 @@ Cvector<T> Cvector<T>::operator + (Cvector<T> V){
 	return result;
 }
 
-template <class T>
+template <typename T>
 Cvector<T> operator- (const Cvector<T> dvect, const T d)
 {
   Cvector<T> R(dvect);
@@ -183,20 +164,21 @@ Cvector<T> operator- (const Cvector<T> dvect, const T d)
   return R;
 }
 
-template <class T>
+template <typename T>
 Cvector<T> & Cvector<T>::operator-= (const Cvector<T> dvect){
   for (int i = 0; i < dim; i++)
     comp[i] = dvect.comp[i] - comp[i];
   return *this;
 }
 
-template <class T>
+template <typename T>
 Cvector<T> operator- (const Cvector<T> dvect, const Cvector<T> dvect2){
   Cvector<T> R(dvect);
   R -= dvect2;
   return (R);
 }
 
+template <typename T>
 Cvector<T>& Cvector<T>::operator*= (T d)
 {
   for (int i = 0; i < dim; i++)
@@ -204,7 +186,7 @@ Cvector<T>& Cvector<T>::operator*= (T d)
   return *this;
 }
 
-template <class T>
+template <typename T>
 Cvector<T> operator* (const T d, const Cvector<T> dvect)
 {
   Cvector<T> R = Cvector<T>(dvect);
@@ -212,7 +194,7 @@ Cvector<T> operator* (const T d, const Cvector<T> dvect)
   return (R);
 }
 
-template <class T>
+template <typename T>
 Cvector<T> operator* (const Cvector<T> dvect, const T d)
 {
   Cvector<T> R(dvect);
@@ -220,16 +202,16 @@ Cvector<T> operator* (const Cvector<T> dvect, const T d)
   return (R);
 }
 
-template <class T>
+template <typename T>
 T Cvector<T>::operator* (const Cvector<T> V)
 {
-	float ret=0;
+	T ret = 0;
   for (int i = 0; i < dim; i++)
     ret += comp[i] * V(i);
   return ret;
 }
 
-template <class T>
+template <typename T>
 Cvector<T>& Cvector<T>::operator/= (T d)
 {
   if (d == 0.){
@@ -242,7 +224,7 @@ Cvector<T>& Cvector<T>::operator/= (T d)
   return *this;
 }
 
-template <class T>
+template <typename T>
 Cvector<T> operator/ (const Cvector<T> dvect, const T d)
 {
   Cvector<T> R(dvect);
@@ -250,7 +232,7 @@ Cvector<T> operator/ (const Cvector<T> dvect, const T d)
   return (R);
 }
 
-template <class T>
+template <typename T>
 Cvector<T> & Cvector<T>::operator= (Cvector<T> dvect){
   std::cout << "Affectation";
   dim = dvect.dim;
@@ -260,21 +242,7 @@ Cvector<T> & Cvector<T>::operator= (Cvector<T> dvect){
 }
 
 
-
-std::ostream& operator <<(std::ostream & Out, const Cvector<T> & V) {
-	for (int i = 0; i < V.dim; i++) {
-		Out << V(i) << "\n";
-	}
-	return Out;
-}
-std::istream& operator >> (std::istream & In,const Cvector<T> & V){
-	for (int i = 0; i < V.dim; i++) {
-		In >> V(i);
-	}
-	return In;
-}
-
-template <class T>
+template <typename T>
 bool Cvector<T>::operator == (const Cvector<T> &V){
 	if(V.dim!=dim){
 		return false;
@@ -285,5 +253,14 @@ bool Cvector<T>::operator == (const Cvector<T> &V){
 		}
 	}
 	return true;
-
 }
+
+template class Cvector<std::complex<double> >;
+/*
+int main(){
+  Cvector<std::complex<double> > h = Cvector<std::complex<double> >(1, std::complex<double>(2,2));
+  h *= std::complex<double>(0,1);
+  h.display(std::cout);
+  return(0);
+}
+*/

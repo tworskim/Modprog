@@ -3,7 +3,7 @@
 
 /*!
  * \file Cvector.H
- * \brief Classe Cvector 
+ * \brief Classe Cvector
  * \author Marcelin Tworski
  * \version 0.1
  */
@@ -14,14 +14,13 @@
    *
    *  La classe gere la lecture d'une liste de morceaux
    */
-template<class T>
-class Cvector
+template<typename T> class Cvector
 {
  private :
   T *comp;
  public :
   int dim;
-  
+
     /*!
      *  \brief Constructeur
      *
@@ -29,7 +28,7 @@ class Cvector
      */
   Cvector();
   /*!
-     *  \brief Constructeur avec un paramêtre de taille, initialisé à 0 .. 0 
+     *  \brief Constructeur avec un paramêtre de taille, initialisé à 0 .. 0
      *
      *  Constructeur de la classe Cvector
      *
@@ -130,21 +129,22 @@ class Cvector
 
 
 };
-
+/*
+template<typename T>
 Cvector<T> operator+ (const T d, const Cvector<T> dvect);
-
+template<typename T>
 Cvector<T> operator+ (const Cvector<T> dvect, const T d);
-
+template<typename T>
 Cvector<T> operator- (const T d, const Cvector<T> dvect);
-
+template<typename T>
 Cvector<T> operator- (const Cvector<T> dvect, const T d);
-
+template<typename T>
 Cvector<T> operator* (const T d, const Cvector<T> dvect);
-
+template<typename T>
 Cvector<T> operator* (const Cvector<T> dvect, const T d);
-
+template<typename T>
 Cvector<T> operator/ (const Cvector<T> dvect,const T d);
 
 T operator* (const Cvector<T> dvect, const Cvector<T> dvect2);
-
+*/
 #endif
